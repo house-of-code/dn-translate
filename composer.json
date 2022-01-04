@@ -1,5 +1,5 @@
 {
-    "name": "nodes/translate",
+    "name": "house-of-code/dn-translate",
     "description": "Enable usage of translation services rather than local files",
     "keywords": [
         "nodes",
