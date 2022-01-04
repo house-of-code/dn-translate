@@ -368,7 +368,7 @@ class NStack implements ProviderInterface
         // If our application is in debug mode
         // we want to bypass the caching of translations
         if (env('APP_DEBUG')) {
-            return $this->data[$locale . $this->application] = $this->request($locale, $platform);
+            //return $this->data[$locale . $this->application] = $this->request($locale, $platform);
         }
 
         // Retrieve translations from storage.
@@ -498,6 +498,8 @@ class NStack implements ProviderInterface
      */
     protected function readFromStorage($locale, $platform)
     {
+        return json_decode('{"emails":{"hi":"Hej {name}","content":"Verifikationsemail","clickLink":"Tekst over link","buttonText":"VERIFICER EMAIL","sign":"Tak fordi du bruger vores app","footer":"Beskeden blev sendt til {email}.","copyrights":"Copyright \u00a9 2016 naturTjek ApS. Alle rettigheder forbeholdes.","exportContent":"Sommerfuglejagten Excel-eksport","sightingsExportContent":"Sommerfuglejagten Excel-eksport","resetPasswordContent":"Du modtager denne email fordi du har anmodet om at nulstille dit password. Hvis ikke, s\u00e5 ignor\u00e9r venligst denne besked.","resetPasswordLinkText":"Klik p\u00e5 linket herunder for at nulstille dit password.","resetPasswordThankYou":"Tak,"},"pagecreatenotifications":{"defaultMessage":"{title}","news":"{title}"}}');
+
         switch ($this->storage) {
             case 'cache':
                 return \Cache::get('nodes.translate_locale_' . $locale . '_platform_' . $platform . '_application_' .
